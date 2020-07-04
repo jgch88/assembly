@@ -4,9 +4,9 @@
 # }
 main:
 lui $s6, 0x1001 # save
-addi $s3, 1 # i, must be at least 1, otherwise sll which is multiplication will do nothing and not execute the i += 1 part
-addi $s5, 0 # k
-addi $t0, 5
+addi $s3, $zero, 1 # i, must be at least 1, otherwise sll which is multiplication will do nothing and not execute the i += 1 part
+addi $s5, $zero, 0 # k
+addi $t0, $zero, 5
 sw $t0, 20($s6) # save[5] = 5, to prevent it from being an infinite loop. 
 # try out the infinite loop to see the exception!
 

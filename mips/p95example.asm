@@ -1,8 +1,8 @@
 # pre-example setup
 # jump to IndexOutOfBounds if $ s1 >= $t2 or $s1 is negative
 main:
-addi $s1 0xffffffff
-addi $t2 0x00000002
+addi $s1, $zero, 0xffffffff
+addi $t2, $zero, 0x00000002
 
 # example
 sltu $t0, $s1, $t2 # if s1 < t2, t0 = 1, happy path. 0 is the unhappy path.
@@ -14,7 +14,7 @@ bne $t0, 1, IndexOutOfBounds # same as beq $t0, $zero, IndexOutOfBounds
 j Exit # not in example, but probably needed
 
 IndexOutOfBounds:
-addi $t3 0xffffffff # to see simulator jump to this instruction
+addi $t3, $zero, 0xffffffff # to see simulator jump to this instruction
 
 Exit:
 # boilerplate for qtspim simulator to exit

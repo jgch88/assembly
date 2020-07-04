@@ -54,3 +54,15 @@ syscall
 ### Program Counter
 
 - starts at 0x00400000
+
+### Gotchas
+
+- have been doing it wrong: addi $a0, 1 compiles even though it should be addi $a0, \$a0, 1. (Seems to have worked for $s0, $t0 etc because these are initialized to 0). See assembler's assembly output:
+
+```
+[00400030] 20840000  addi $4, $4, 0           ; 16: addi $a0, 0
+[00400034] 20050001  addi $5, $0, 1           ; 17: addi $a1, $zero, 1
+```
+
+- addi $a0, 1 is shorthand for addi $a0, \$a0, 1
+- when using argument registers e.g. \$a0, be extra careful because it's usually filled with junk from previous functions

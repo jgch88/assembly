@@ -1,9 +1,9 @@
 # pre-example setup
 main:
-addi $s1, 1
-addi $s2, 2
-addi $s3, 3
-addi $s4, 4 # change $s4 to observe bne branching behaviour
+addi $s1, $zero, 1
+addi $s2, $zero, 2
+addi $s3, $zero, 3
+addi $s4, $zero, 4 # change $s4 to observe bne branching behaviour
 
 # example
 bne $s3, $s4, Else 

@@ -1,7 +1,7 @@
 # pre-example setup
 main:
-addi $s0 0xffffffff
-addi $s1 0x00000001
+addi $s0, $zero, 0xffffffff
+addi $s1, $zero, 0x00000001
 
 # example
 slt $t0, $s0, $s1 # $t0 = 1

@@ -1,9 +1,9 @@
 # pre-example setup
 main:
-addi $s1, 1
-addi $s2, 2
-addi $s3, 3
-addi $s4, 4
+addi $s1, $zero, 1
+addi $s2, $zero, 2
+addi $s3, $zero, 3
+addi $s4, $zero, 4
 
 # example
 add $t0, $s1, $s2 # t0 = g + h
