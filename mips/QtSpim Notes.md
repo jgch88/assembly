@@ -66,3 +66,9 @@ syscall
 
 - addi $a0, 1 is shorthand for addi $a0, \$a0, 1
 - when using argument registers e.g. \$a0, be extra careful because it's usually filled with junk from previous functions
+
+### Style Guide
+
+https://cs233.github.io/mipsstyle.html
+
+- Label names should be all lower case with underscores separating words.

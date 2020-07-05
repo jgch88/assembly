@@ -7,7 +7,7 @@ main:
 addi $s0, $zero, 5 # doing some random stuff
 addi $a0, $zero, 4 # initial value of n
 jal fact # fact(4)
-j Exit # so that jal fact doesn't link $ra to fact and invoke fact forever
+j fact_exit # so that jal fact doesn't link $ra to fact and invoke fact forever
 
 # example
 fact:
@@ -43,15 +43,15 @@ mul $v0, $a0, $v0 # return n * fact (n - 1)
 jr $ra # return to caller
 
 # escape recursive function
-Exit:
+fact_exit:
 
 # boilerplate for qtspim simulator to exit
 li $v0, 10 
 syscall
 
 #### 
-# At maximum depth of the recursion, can see n = 1, 2, 3, 4. 
-# $ra = 00400050, 00400050, 00400050 (recursive cases), 00400018 (base case)
+# At maximum depth of the recursion, can see n = 0, 1, 2, 3, 4. 
+# $ra = 00400050, 00400050, 00400050, 00400050 (recursive cases), 00400018 (base case)
 # User Stack [7ffff020]..[80000000]
 # [7ffff020]    00000000  00400050  00000001  00400050    . . . . P . @ . . . . . P . @ . 
 # [7ffff030]    00000002  00400050  00000003  00400050    . . . . P . @ . . . . . P . @ . 
