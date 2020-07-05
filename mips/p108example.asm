@@ -58,3 +58,13 @@ strcpy_exit: # escape function
 # boilerplate for qtspim simulator to exit
 li $v0, 10 
 syscall
+
+####
+# Observe the little endianness of the bytes in each word
+# e.g. 44434241 is DCBA addressed from right to left, bytes 3,2,1,0 within the word
+# User data segment [10000000]..[10040000]
+# [10000000]..[1000ffff]  00000000
+# [10010000]    44434241  00000045  00000000  00000000    A B C D E . . . . . . . . . . . 
+# [10010010]..[1001ffff]  00000000
+# [10020000]    44434241  00000045  00000000  00000000    A B C D E . . . . . . . . . . . 
+# [10020010]..[1003ffff]  00000000
